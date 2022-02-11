@@ -36,8 +36,6 @@ main {
     padding: 1rem;
 }
 
-
-
 .apresentacao{
     background-color: white;
     display: flex;
@@ -46,10 +44,31 @@ main {
 
 .apresentacao div{
     flex: 1;
-    display: inline-block;
+    /* display: inline-block; */
     max-width: 45%;
+}
+
+.apresentacao-texto {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+}
+
+.apresentacao-texto h1{
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.apresentacao-texto p{
+    font-size: 1.4rem;
+}
+
+.text-important {
+    color: var(--verdeT1);
 }
 
 .foto {
     max-width: 100%;
+    border-radius: 50px;
 }
