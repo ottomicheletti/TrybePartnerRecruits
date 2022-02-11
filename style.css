@@ -33,13 +33,17 @@
 main {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 1em;
+    max-width: 1200px;
 }
+
+/* apresentação */
 
 .apresentacao{
     background-color: white;
     display: flex;
     justify-content: space-around;
+    margin-bottom: 20px;
 }
 
 .apresentacao div{
@@ -56,12 +60,12 @@ main {
 }
 
 .apresentacao-texto h1{
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+    font-size: 2em;
+    margin-bottom: 1.5em;
 }
 
 .apresentacao-texto p{
-    font-size: 1.4rem;
+    font-size: 1.4em;
 }
 
 .text-important {
@@ -71,4 +75,47 @@ main {
 .foto {
     max-width: 100%;
     border-radius: 50px;
+}
+
+
+
+/* Busca */
+
+.busca {
+    /* background-color: var(--verdeT3); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-around; */
+    margin-bottom: 20px;
+}
+
+.busca h3 {
+    font-size: 1.7em;
+    margin: 28px 0px 14px 0px;
+}
+
+
+.busca input {
+    font-size: 1.4em;
+    width: 58%;
+    margin-bottom: 14px;
+    border: 2px solid var(--verdeT2);
+    border-radius: 5px;
+    padding: 0 10px;
+}
+
+.busca button {
+    font-size: 1.4em;
+    background-color: var(--verdeT3);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 1px solid var(--verdeT1);
+}
+
+.busca button:hover{
+    color: black;
+    box-shadow: 0px 0px 10px black;
 }
