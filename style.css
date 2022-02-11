@@ -11,6 +11,11 @@
     box-sizing: border-box;
   }
 
+  body{
+    font-family: 'Poppins', sans-serif;
+    font-size: 400;
+  }
+
 
 /* barra de navegação */
 nav {
@@ -21,6 +26,7 @@ nav {
 nav .container {
     max-width: 1200px;
     padding: 10px 20px;
+    margin: auto;
     display: flex;
     justify-content: space-between;
 }
@@ -61,6 +67,10 @@ nav .navbar-nav .nav-item a{
     display: block;
 }
 
+nav .navbar-nav .nav-item a:hover{
+    color: white;
+}
+
 
 
 
@@ -69,6 +79,7 @@ main {
     flex-direction: column;
     padding: 1em;
     max-width: 1200px;
+    margin: auto;
     
 }
 
