@@ -1,0 +1,25 @@
+:root {
+    --verdeT1: #036b52;
+    --verdeT3: #309e76;
+    --verdeT2: #2fc18c;
+}
+
+
+.bg-verde {
+    background-color: #036b52;
+    color: white;
+}
+
+.bg-cinza {
+    background-color: #333;
+    color: black;
+}
+
+.text-branco {
+    color: white !important;
+}
+
+.border-verde {
+    border-bottom: 7px solid var(--verdeT2);
+    
+}
