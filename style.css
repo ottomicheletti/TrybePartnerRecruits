@@ -5,8 +5,14 @@
 }
 
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
 .bg-verde {
-    background-color: #036b52;
+    background-color: var(--verdeT1);
     color: white;
 }
 
@@ -22,4 +28,28 @@
 .border-verde {
     border-bottom: 7px solid var(--verdeT2);
     
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+
+
+.apresentacao{
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+}
+
+.apresentacao div{
+    flex: 1;
+    display: inline-block;
+    max-width: 45%;
+}
+
+.foto {
+    max-width: 100%;
 }
