@@ -1,6 +1,9 @@
 const { request } = require("@octokit/request");
 
-const fetchMembers = async(page) => {
+
+const fetchMembers = async () => {
+  const trybeMembers = [];
+  let pageCounter = 1;
   const response = await request("GET /orgs/{org}/members", {
     headers: {
       authorization: "token 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",
@@ -9,12 +12,18 @@ const fetchMembers = async(page) => {
     type: "private",
     role: "member",
     per_page: 30,
-    page: page,
+    page: pageCounter,
   });
 
-  const { data } = response;
+  const {data} = response;
 
- return data;
-};
+  while (data.length > 0) {
+    data.forEach((member) => trybeMembers.push(member));
+    pageCounter += 1;
+  }
 
-fetchMembers(1).then(console.log);
+  return trybeMembers;
+}
+
+
+fetchMembers().then(console.log);
