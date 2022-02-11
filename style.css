@@ -1,0 +1,167 @@
+:root {
+    --verdeT1: #036b52;
+    --verdeT3: #309e76;
+    --verdeT2: #2fc18c;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body{
+    font-family: 'Poppins', sans-serif;
+    font-size: 400;
+  }
+
+
+/* barra de navegação */
+nav {
+    background-color: #036b52;
+    color: white;
+}
+
+nav .container {
+    max-width: 1200px;
+    padding: 10px 20px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+nav .logo img{    
+    width: auto;
+    height: 50px;   
+}
+
+nav .logo h2{
+    color: white;
+    padding-left: 10px;
+}
+
+nav .navbar-nav {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+nav .navbar-nav .nav-item {
+    padding-left: 20px;
+    display: block;
+    
+}
+
+nav .navbar-nav .nav-item a{
+    text-decoration: none;
+    color: rgb(212, 212, 212);
+    display: block;
+}
+
+nav .navbar-nav .nav-item a:hover{
+    color: white;
+}
+
+
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    max-width: 1200px;
+    margin: auto;
+    
+}
+
+/* apresentação */
+
+.apresentacao{
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.apresentacao div{
+    flex: 1;
+    /* display: inline-block; */
+    max-width: 45%;
+}
+
+.apresentacao-texto {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+}
+
+.apresentacao-texto h1{
+    font-size: 2em;
+    margin-bottom: 1.5em;
+}
+
+.apresentacao-texto p{
+    font-size: 1.4em;
+}
+
+.text-important {
+    color: var(--verdeT1);
+}
+
+.foto {
+    max-width: 100%;
+    border-radius: 50px;
+}
+
+
+
+/* Busca */
+
+.busca {
+    /* background-color: var(--verdeT3); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-around; */
+    margin-bottom: 20px;
+}
+
+.busca h3 {
+    font-size: 1.7em;
+    margin: 28px 0px 14px 0px;
+}
+
+
+.busca input {
+    font-size: 1.4em;
+    width: 58%;
+    margin-bottom: 14px;
+    border: 2px solid var(--verdeT2);
+    border-radius: 5px;
+    padding: 0 10px;
+}
+
+.busca button {
+    font-size: 1.4em;
+    background-color: var(--verdeT3);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 1px solid var(--verdeT1);
+}
+
+.busca button:hover{
+    color: black;
+    box-shadow: 0px 0px 10px black;
+}
