@@ -26,4 +26,6 @@ const fetchMembers = async () => {
   return trybeMembers;
 };
 
-fetchMembers().then(console.log);
+module.exports = { fetchMembers };
+
+// fetchMembers().then(console.log);

@@ -1,6 +1,6 @@
 const { request } = require("@octokit/request");
 
-const fetchTeams = async () => {
+const fetchOrgTeams = async () => {
   const response = await request("GET /orgs/{org}/teams", {
     headers: {
       authorization: "token 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",
@@ -9,10 +9,11 @@ const fetchTeams = async () => {
     per_page: 100,
     });
   const {data} = response;
-  const teams = data.map((team) => [team.slug, team.name]);
+  const regex = /students-sd-/g;
+  const teams = data.map((team) => [team.slug, team.name.replace(regex, 'Turma ')]).filter((team) => team[0].match(regex));
   return teams;
 }
 
-module.exports = { fetchTeams };
+module.exports = { fetchOrgTeams };
 
-// fetchTeams().then(console.log);
+// fetchOrgTeams().then(console.log);
