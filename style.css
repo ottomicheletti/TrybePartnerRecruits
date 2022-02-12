@@ -180,10 +180,13 @@ main {
 }
 
 /* parte implementeda por guilherme */
+#h1-tabela {
+    text-align: center;
+}
 
 .content-table {
     border-collapse: collapse;
-    margin: 20px 0;
+    margin: 20px auto;
     font-size: 0.9em;
     min-width: 500px;
     border-radius: 5px;
@@ -243,7 +246,8 @@ tr:hover {
 }
 
 #popup {
-    margin-top: 100px;
+    width: fit-content;
+    margin: 100px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -251,7 +255,7 @@ tr:hover {
     background-color: rgb(81, 201, 135);
     border-radius: 15px;
     box-shadow: 5px 5px 10px rgba(128, 128, 128, 0.749);
-    margin-bottom: 100px;
+    
 }
 
 #popup img {
