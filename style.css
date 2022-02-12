@@ -234,7 +234,7 @@ main {
 tr:hover {
     color: rgb(81, 201, 135);
     background-color: rgba(128, 128, 128, 0.146);
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 @keyframes teste {
@@ -270,3 +270,7 @@ tr:hover {
     padding: 10px 15px;
     text-decoration: none;
 }
+
+[class^='th'] {
+    cursor: pointer;
+} 
