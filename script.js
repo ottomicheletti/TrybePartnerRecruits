@@ -1,3 +1,5 @@
+import { SignGit } from "./components/index.js";
+
 const insertPlayerData = (arrayData) => {
     const table = document.querySelector('.content-table');
     const tr = document.createElement('tr');
@@ -74,3 +76,9 @@ window.onload = function () {
     insertPlayerData(['5', 'Ronaldo', '74', 'Manchester United']);
     addSortToTable();
 };
+
+export default function Name() {
+    return (
+        < SignGit />
+    )
+}
