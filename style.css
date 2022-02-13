@@ -1,14 +1,3 @@
-/* body {
-    background-color: rgb(255, 255, 255);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-family: Helvetica, sans-serif;
-    font-size: 30px;
-    font-weight: 400; 
-} */
-
 :root {
   --verdeT1: #036b52;
   --verdeT3: #309e76;
@@ -76,6 +65,22 @@ nav .navbar-nav .nav-item a {
 nav .navbar-nav .nav-item a:hover {
   color: white;
 }
+
+
+nav .navbar-nav .nav-item .git-button {
+    height: 3rem;
+    border-radius: 3rem;
+    background: rgba(0, 0, 0, 0.8);
+    border: none;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaaaaa;
+    cursor: pointer;
+    font-weight: bold;
+}
+
 
 main {
   display: flex;
@@ -153,6 +158,7 @@ main {
   cursor: pointer;
   border: 1px solid var(--verdeT1);
 }
+
 
 .busca button:hover {
   color: black;
@@ -371,4 +377,4 @@ footer a img {
   }
 }
 
-/* 2 - A segunda div só poderá aparecer apenas se a largura estiver entre 600px e 1000px . */
+

@@ -1,3 +1,5 @@
+import { SignGit } from "./components/index.js";
+
 const insertPlayerData = (arrayData) => {
   const table = document.querySelector('.content-table');
   const tr = document.createElement('tr');
@@ -8,6 +10,7 @@ const insertPlayerData = (arrayData) => {
   });
   table.appendChild(tr);
 }
+
 
 // funcao apresentada em https://www.w3schools.com/howto/howto_js_sort_table.asp
 function sortTable(event) {
@@ -71,5 +74,6 @@ const addSortToTable = () => {
 };
 
 window.onload = () => {
-  fetchOrgTeams().then(console.log());
+  // fetchOrgTeams().then(console.log());
 };
+
