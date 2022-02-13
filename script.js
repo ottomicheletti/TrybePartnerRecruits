@@ -70,7 +70,6 @@ const addSortToTable = () => {
   });
 };
 
-window.onload = function () {
-  // insertPlayerData(['5', 'Ronaldo', '74', 'Manchester United']);
-  // addSortToTable();
+window.onload = () => {
+  fetchOrgTeams().then(console.log());
 };

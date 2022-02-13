@@ -295,8 +295,45 @@ footer a img {
   height: 20px;
 }
 
-/* 1 - A primeira div só poderá aparecer se nossa tela possuir largura mínima de 500px . */
 @media screen and (min-width: 1200px) {
+  body {
+    font-size: 14px;
+  }
+  
+  nav .container {
+    max-width: 1200px;
+  }
+
+  main {
+    max-width: 1200px;
+  }
+
+  .apresentacao {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .foto {
+    /* display: block; */
+    margin: auto;
+    /* height: 300px;  */
+    max-width: 100%;
+    /* object-fit: cover; */
+    border-radius: 50px;
+  }
+
+  .busca {
+    margin-top: 30px;
+  }
+
+  footer div {
+    max-width: 1200px;
+    width: 80%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
   body {
     font-size: 14px;
   }
