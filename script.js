@@ -1,6 +1,6 @@
-// import {
-//   SignGit
-// } from "./components/index.js";
+
+// import { SignGit } from "./components/index.js";
+
 
 const mainSec = document.getElementById('main-sec');
 
@@ -93,6 +93,27 @@ const removeContent = () => {
   }
 };
 
+
+// Implementando a função login
+
+const defaultEmail = 'recruiter@trybe.com';
+const defaultPassword = '1234';
+const userInput = document.querySelector('#user-input');
+const userPassword = document.querySelector('#password-input');
+const submitBtn = document.querySelector('#login-button');
+const search = document.querySelector('#busca');
+const loginSection = document.querySelector('#login-container');
+
+const login = () => {
+  if (defaultEmail === userInput.value && defaultPassword === userPassword.value) {
+    loginSection.classList.add('hide');
+    search.classList.remove('hide');
+  } else {
+    throw new Error ('Login ou senha inválida!');
+  }
+}
+submitBtn.addEventListener('click', login);
+
 const removeAndAddDivs = () => {
   removeContent();
   addDivs(10);
@@ -103,3 +124,4 @@ window.onload = () => {
   const searchBtn = document.getElementById('search-btn');
   searchBtn.addEventListener('click', removeAndAddDivs);
 };
+

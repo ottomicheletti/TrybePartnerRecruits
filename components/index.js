@@ -2,6 +2,7 @@ import styles from './styles.module.scss';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import { FaGithub } from 'react-icons/fa';
 
+
 export function SignGit() {
   // const session = useSession();
   // const session = useSession().session;
