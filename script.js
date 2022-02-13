@@ -2,6 +2,8 @@
 //   SignGit
 // } from "./components/index.js";
 
+const mainSec = document.getElementById('main-sec');
+
 const insertPlayerData = (arrayData) => {
   const table = document.querySelector('.content-table');
   const tr = document.createElement('tr');
@@ -76,7 +78,7 @@ const addSortToTable = () => {
 };
 
 const addDivs = (n) => {
-  const mainSec = document.getElementById('main-sec');
+  mainSec.classList.add('main-divs')
   for (let index = 0; index < n; index += 1) {
     const div = document.createElement('div');
     div.classList.add('div-card');
@@ -86,7 +88,6 @@ const addDivs = (n) => {
 }
 
 const removeContent = () => {
-  const mainSec = document.getElementById('main-sec');
   while (mainSec.firstChild) {
     mainSec.firstChild.remove();
   }
@@ -98,6 +99,7 @@ const removeAndAddDivs = () => {
 }
 
 window.onload = () => {
+  mainSec.className = '';
   const searchBtn = document.getElementById('search-btn');
   searchBtn.addEventListener('click', removeAndAddDivs);
 };
