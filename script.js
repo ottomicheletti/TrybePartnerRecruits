@@ -1,13 +1,3 @@
-const insertPlayerData = (arrayData) => {
-    const table = document.querySelector('.content-table');
-    const tr = document.createElement('tr');
-    arrayData.forEach((element) => {
-        const td = document.createElement('td');
-        td.innerText = element;
-        tr.appendChild(td)
-    });
-    table.appendChild(tr);
-}
 
 // funcao apresentada em https://www.w3schools.com/howto/howto_js_sort_table.asp
 function sortTable(event) {
