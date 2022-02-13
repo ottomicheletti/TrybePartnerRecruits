@@ -2,7 +2,7 @@
   "name": "trybepartnerrecruits",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "script.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
