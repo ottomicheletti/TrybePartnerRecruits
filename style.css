@@ -1,22 +1,8 @@
-/* body {
-    background-color: rgb(255, 255, 255);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-family: Helvetica, sans-serif;
-    font-size: 30px;
-    font-weight: 400; 
-} */
-
-
-
 :root {
     --verdeT1: #036b52;
     --verdeT3: #309e76;
     --verdeT2: #2fc18c;
 }
-
 
 * {
     margin: 0;
@@ -84,6 +70,7 @@ nav .navbar-nav .nav-item a:hover{
     color: white;
 }
 
+
 nav .navbar-nav .nav-item .git-button {
     height: 3rem;
     border-radius: 3rem;
@@ -97,8 +84,6 @@ nav .navbar-nav .nav-item .git-button {
     cursor: pointer;
     font-weight: bold;
 }
-
-
 
 main {
     display: flex;
@@ -190,100 +175,7 @@ main {
 .busca button:hover{
     color: black;
     box-shadow: 0px 0px 10px black;
-}
-
-/* parte implementeda por guilherme */
-
-.content-table {
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 0.9em;
-    min-width: 500px;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(128, 128, 128, 0.379);
-}
-
-.content-table thead tr {
-    background-color: rgb(81, 201, 135);
-    color: azure;
-    min-width: 400px;
-    text-align: left;
-    font-weight: bold;
-}
-
-.content-table th, .content-table td {
-    padding: 15px;
-
-}
-
-.content-table tbody tr {
-    border-bottom: 1px solid rgba(128, 128, 128, 0.283);
-}
-
-.content-table tbody tr:nth-of-type(even) {
-    background-color: rgba(128, 128, 128, 0.105);
-}
-
-#father {
-    position: relative;
-    height: 25px;
-    margin-top: 50px;
-    background-color: grey;
-    border-radius: 15px;
-    width: 800px;
-}
-
-#children {
-    position: absolute;
-    height: 25px;
-    border-radius: 5px;
-    background-color: rgb(102, 255, 145);
-    animation: teste 5s forwards;
-    border-radius: 15px;
-    box-shadow: 5px 5px 10px rgba(44, 218, 93, 0.529);
-}
-
-tr:hover {
-    color: rgb(81, 201, 135);
-    background-color: rgba(128, 128, 128, 0.146);
-    /* cursor: pointer; */
-}
-
-@keyframes teste {
-    0% {width: 0%;}
-    100% {width: 100%;}
-}
-
-#popup {
-    margin-top: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 0;
-    background-color: rgb(81, 201, 135);
-    border-radius: 15px;
-    box-shadow: 5px 5px 10px rgba(128, 128, 128, 0.749);
-    margin-bottom: 100px;
-}
-
-#popup img {
-    width: 100px;
-    border: 2px solid rgb(7, 138, 92);
-    border-radius: 50%;
-    padding: 20px;
-    background-color: aliceblue;
-}
-
-#popup p {
-    border: 2px solid rgb(9, 107, 43);
-    margin: 10px 40px;
-    background-color: aliceblue;
-    border-radius: 10px;
-    padding: 10px 15px;
-    text-decoration: none;
-}
 
 [class^='th'] {
     cursor: pointer;
-} 
+}
