@@ -77,8 +77,3 @@ window.onload = function () {
     addSortToTable();
 };
 
-export default function Name() {
-    return (
-        < SignGit />
-    )
-}

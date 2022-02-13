@@ -3,15 +3,23 @@ import { useSession, signIn, signOut } from 'next-auth/react';
 import { FaGithub } from 'react-icons/fa';
 
 export function SignGit() {
-  const [session] = useSession();
+  // const session = useSession();
+  // const session = useSession().session;
+  const status = useSession({
+    required: true,
+    onUnauthenticated() {
+      // O usuario nao esta´ autenticado, tratar isto aqui.
+    }
+  });
 
-  return session ? (
-    <button type="button" className={styles.gitButton} onclick={() => signOut()}>
+  return status ? (
+    <button type="button" className={styles.gitButton} onClick={() => signOut()}>
       <FaGithub color="#04d361" />
-      {session.user.name}
+      {status.user}
+      Debora
     </button>
   ) : (
-    <button type="button" className={styles.gitButton} onclick={() => signIn('github')}>
+    <button type="button" className={styles.gitButton} onClick={() => signIn('github')}>
       <FaGithub color="#eba417" />
       Login com GitHub
     </button>
