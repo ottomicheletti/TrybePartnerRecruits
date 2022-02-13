@@ -276,18 +276,7 @@ tr:hover {
 } 
 
 /* Footer */
-footer {
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-  padding: 10px;
-  color: white;
-  background-color: black;
-  font-size: 20px;
-}
+
 
 /* 1 - A primeira div só poderá aparecer se nossa tela possuir largura mínima de 500px . */
 @media screen and (min-width: 500px) {
@@ -309,4 +298,35 @@ footer {
     .card:nth-child(3) {
         display: block;
     }
+}
+
+
+/* footer */
+footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 7px 0;
+  background-color: var(--verdeT1);
+  border-top: 2px solid black;
+}
+
+footer a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+
+footer a p {
+  display: inline-block;
+  padding-right: 10px;
+  font-size: 0.6rem;
+}
+
+footer a img{
+  height: 20px;
 }
