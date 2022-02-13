@@ -67,7 +67,7 @@ nav .navbar-nav .nav-item a:hover {
 }
 
 
-nav .navbar-nav .nav-item .git-button {
+.git-button {
     height: 3rem;
     border-radius: 3rem;
     background: rgba(0, 0, 0, 0.8);
@@ -337,37 +337,82 @@ footer a img {
     width: 80%;
     margin: auto;
   }
+
+  .main-divs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px
+  }
+
+  .div-card {
+    background-color: red;
+    padding: 10px;
+    display: inline-block;
+    max-width: 100px;
+  }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (min-width: 501px) and (max-width: 1170px){
   body {
-    font-size: 14px;
+    font-size: 12px;
   }
   
   nav .container {
-    max-width: 1200px;
+    max-width: 100%;
   }
 
   main {
-    max-width: 1200px;
+    max-width: 100%;
   }
 
   .apresentacao {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .apresentacao div {
+    flex: 1;
+    /* display: inline-block; */
+    max-width: 100%;
+  }
+
+  .apresentacao-texto {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+  }
+  
+  .apresentacao-texto h1 {
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+  }
+  
+  .apresentacao-texto p {
+    font-size: 1.2em;
+    /* margin-bottom: 3em; */
   }
 
   .foto {
-    /* display: block; */
+    display: block;
     margin: auto;
-    /* height: 300px;  */
-    max-width: 100%;
-    /* object-fit: cover; */
-    border-radius: 50px;
+    max-width: 40%;
+    border-radius: 25px;
   }
 
   .busca {
-    margin-top: 30px;
+    margin-top: 20px;
+  }
+
+  .busca h3 {
+    font-size: 1.5em;
+    margin: 0px 0px 7px 0px;
+    text-align: center;
   }
 
   footer div {
@@ -375,6 +420,162 @@ footer a img {
     width: 80%;
     margin: auto;
   }
+
+  .main-divs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px
+  }
+
+  .div-card {
+    background-color: red;
+    padding: 10px;
+    display: inline-block;
+    max-width: 100px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    font-size: 10px;
+  }
+  
+  nav .container {
+    max-width: 100%;
+  }
+
+  main {
+    max-width: 100%;
+  }
+
+  .apresentacao {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .apresentacao div {
+    flex: 1;
+    /* display: inline-block; */
+    max-width: 100%;
+  }
+
+  .apresentacao-texto {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+  }
+  
+  .apresentacao-texto h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+  }
+  
+  .apresentacao-texto p {
+    font-size: 1.4em;
+    /* margin-bottom: 3em; */
+  }
+
+  .foto {
+    display: block;
+    margin: auto;
+    max-width: 80%;
+    border-radius: 25px;
+  }
+
+  .busca {
+    margin-top: 10px;
+  }
+
+  .busca h3 {
+    font-size: 1.7em;
+    margin: 0px 0px 7px 0px;
+    text-align: center;
+  }
+
+  footer div {
+    max-width: 1200px;
+    width: 80%;
+    margin: auto;
+  }
+
+  .main-divs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px
+  }
+
+  .div-card {
+    background-color: red;
+    padding: 10px;
+    display: inline-block;
+    max-width: 100px;
+  }
+
 }
 
 
+/* Implementação da feature do login */
+
+.hide {
+  display: none;
+}
+
+#login-section {
+
+  margin: 20px auto;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(128, 128, 128, 0.55);
+  border-radius: 7px;
+  background-color: #2fc18c95;
+}
+
+#login-section img {
+  width: 80px;
+}
+
+#login-section h3 {
+  font-weight: 550;
+  font-size: 1.3em;
+}
+
+#user-div  {
+  margin-top: 20px;
+}
+
+#user-div input {
+  padding: 4px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.386);
+  background-color: #ffffffd2;
+  
+}
+
+#password-div input {
+  margin-top: 10px;
+  padding: 4px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.386);
+  background-color: #ffffffd2;
+}
+
+#login-button {
+  margin-top: 20px;
+  background-color: var(--verdeT3);
+  color: white;
+  padding: 5px 15px;
+  border-radius:7px;
+  cursor: pointer;
+  border: 1px solid var(--verdeT1);
+}

@@ -22,6 +22,7 @@ body {
 
 .hide-sub-body {
     opacity: 0;
+    pointer-events: none;
 }
 
 .content-table {
@@ -63,30 +64,39 @@ body {
 
 #progress-bar {
     display: flex;
-    border: 2px solid red;
+    position: absolute;
+    transform: translateY(1500%);
+    align-content: center;
     width: 600px;
-    height: 40px;
+    height: 20px;
+    align-items: center;
+    border-radius: 15px;
+    background-color: rgba(128, 128, 128, 0.317);
 }
 
-#father {
+/* #father {
     height: 25px;
-    position: relative;
     margin-top: 50px;
     background-color: grey;
     border-radius: 15px;
     width: 800px;
-}
+} */
 
 #children {
-    height: 25px;
+    height: 20px;
     position: absolute;
     border-radius: 5px;
-    background-color: rgb(102, 255, 145);
+    background-color: rgb(63, 159, 90);
     animation: teste 2s forwards;
     border-radius: 15px;
-    box-shadow: 5px 5px 10px rgba(44, 218, 93, 0.529);
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.153);
 }
-.hide-progress-bar {
+
+@keyframes teste {
+    from {width: 0%;}
+    to {width: 100%;}
+}
+.hide {
     display: none;
 }
 
@@ -95,10 +105,6 @@ tr:hover {
     background-color: rgba(128, 128, 128, 0.146);
 }
 
-@keyframes teste {
-    0% {width: 0%;}
-    100% {width: 100%;}
-}
 
 #modal {
 position: fixed;

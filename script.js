@@ -1,3 +1,7 @@
+// import { SignGit } from "./components/index.js";
+  
+const mainSec = document.getElementById('main-sec');
+
 const insertPlayerData = (arrayData) => {
   const table = document.querySelector('.content-table');
   const tr = document.createElement('tr');
@@ -74,8 +78,53 @@ const addSortToTable = () => {
   });
 };
 
+const addDivs = (n) => {
+  mainSec.classList.add('main-divs')
+  for (let index = 0; index < n; index += 1) {
+    const div = document.createElement('div');
+    div.classList.add('div-card');
+    div.innerText = 'Teste';
+    mainSec.appendChild(div);
+  }
+}
+
+const removeContent = () => {
+  while (mainSec.firstChild) {
+    mainSec.firstChild.remove();
+  }
+};
+
+
+// Implementando a função login
+
+const defaultEmail = 'recruiter@trybe.com';
+const defaultPassword = '1234';
+const userInput = document.querySelector('#user-input');
+const userPassword = document.querySelector('#password-input');
+const submitBtn = document.querySelector('#login-button');
+const search = document.querySelector('#busca');
+const loginSection = document.querySelector('#login-container');
+
+const login = () => {
+  if (defaultEmail === userInput.value && defaultPassword === userPassword.value) {
+    loginSection.classList.add('hide');
+    search.classList.remove('hide');
+  } else {
+    throw new Error ('Login ou senha inválida!');
+  }
+}
+submitBtn.addEventListener('click', login);
+
+const removeAndAddDivs = () => {
+  removeContent();
+  addDivs(10);
+}
+
 window.onload = () => {
   // fetchOrgTeams().then(console.log);
   // fetchTeamMembers('students-sd-019-c',).then(console.log);
   // fetchUser('ottomicheletti').then(console.log);
+  mainSec.className = '';
+  const searchBtn = document.getElementById('search-btn');
+  searchBtn.addEventListener('click', removeAndAddDivs);
 };

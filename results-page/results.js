@@ -34,6 +34,11 @@ const callingResults = () => {
     insertPlayerData(['5', 'Ronaldo', '70', 'Manchester United', '&#43']);
     tableToHide.classList.remove('hide-sub-body');
     progressBar.classList.add('hide-progress-bar');
+    document.querySelector('#h1-table').classList.remove('hide');
+    document.querySelector('#table-header').classList.remove('hide');
+    document.querySelector('#content-table-body').classList.remove('hide');
+    document.querySelector('#return-anchor').classList.remove('hide');
+    progressBar.remove();
     addingPlus();
 }
 
