@@ -1,4 +1,8 @@
+
 // import { SignGit } from "./components/index.js";
+
+
+const mainSec = document.getElementById('main-sec');
 
 const insertPlayerData = (arrayData) => {
   const table = document.querySelector('.content-table');
@@ -73,9 +77,22 @@ const addSortToTable = () => {
   });
 };
 
-window.onload = () => {
-  // fetchOrgTeams().then(console.log());
+const addDivs = (n) => {
+  mainSec.classList.add('main-divs')
+  for (let index = 0; index < n; index += 1) {
+    const div = document.createElement('div');
+    div.classList.add('div-card');
+    div.innerText = 'Teste';
+    mainSec.appendChild(div);
+  }
+}
+
+const removeContent = () => {
+  while (mainSec.firstChild) {
+    mainSec.firstChild.remove();
+  }
 };
+
 
 // Implementando a função login
 
@@ -96,3 +113,15 @@ const login = () => {
   }
 }
 submitBtn.addEventListener('click', login);
+
+const removeAndAddDivs = () => {
+  removeContent();
+  addDivs(10);
+}
+
+window.onload = () => {
+  mainSec.className = '';
+  const searchBtn = document.getElementById('search-btn');
+  searchBtn.addEventListener('click', removeAndAddDivs);
+};
+
