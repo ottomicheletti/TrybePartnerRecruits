@@ -339,6 +339,75 @@ footer a img {
   }
 }
 
+@media screen and (min-width: 520px) and (max-width: 1170px){
+  body {
+    font-size: 12px;
+  }
+  
+  nav .container {
+    max-width: 100%;
+  }
+
+  main {
+    max-width: 100%;
+  }
+
+  .apresentacao {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .apresentacao div {
+    flex: 1;
+    /* display: inline-block; */
+    max-width: 100%;
+  }
+
+  .apresentacao-texto {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+  }
+  
+  .apresentacao-texto h1 {
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+  }
+  
+  .apresentacao-texto p {
+    font-size: 1.2em;
+    /* margin-bottom: 3em; */
+  }
+
+  .foto {
+    display: block;
+    margin: auto;
+    max-width: 40%;
+    border-radius: 25px;
+  }
+
+  .busca {
+    margin-top: 20px;
+  }
+
+  .busca h3 {
+    font-size: 1.5em;
+    margin: 0px 0px 7px 0px;
+    text-align: center;
+  }
+
+  footer div {
+    max-width: 1200px;
+    width: 80%;
+    margin: auto;
+  }
+}
+
 @media screen and (max-width: 500px) {
   body {
     font-size: 10px;
