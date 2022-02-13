@@ -1,4 +1,6 @@
-import { SignGit } from "./components/index.js";
+// import {
+//   SignGit
+// } from "./components/index.js";
 
 const insertPlayerData = (arrayData) => {
   const table = document.querySelector('.content-table');
@@ -73,7 +75,29 @@ const addSortToTable = () => {
   });
 };
 
-window.onload = () => {
-  // fetchOrgTeams().then(console.log());
+const addDivs = (n) => {
+  const mainSec = document.getElementById('main-sec');
+  for (let index = 0; index < n; index += 1) {
+    const div = document.createElement('div');
+    div.classList.add('div-card');
+    div.innerText = 'Teste';
+    mainSec.appendChild(div);
+  }
+}
+
+const removeContent = () => {
+  const mainSec = document.getElementById('main-sec');
+  while (mainSec.firstChild) {
+    mainSec.firstChild.remove();
+  }
 };
 
+const removeAndAddDivs = () => {
+  removeContent();
+  addDivs(10);
+}
+
+window.onload = () => {
+  const searchBtn = document.getElementById('search-btn');
+  searchBtn.addEventListener('click', removeAndAddDivs);
+};
