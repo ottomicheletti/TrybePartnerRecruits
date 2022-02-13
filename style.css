@@ -70,6 +70,21 @@ nav .navbar-nav .nav-item a:hover{
     color: white;
 }
 
+
+nav .navbar-nav .nav-item .git-button {
+    height: 3rem;
+    border-radius: 3rem;
+    background: rgba(0, 0, 0, 0.8);
+    border: none;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaaaaa;
+    cursor: pointer;
+    font-weight: bold;
+}
+
 main {
     display: flex;
     flex-direction: column;
