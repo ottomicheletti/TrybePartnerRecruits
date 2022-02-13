@@ -1,7 +1,3 @@
-const {
-  request
-} = require("@octokit/request");
-
 const fetchMembers = async () => {
   const trybeMembers = [];
   // Loop para percorrer todas as páginas de membros da organização Trybers que tenham member como role.
@@ -33,10 +29,6 @@ const fetchMembers = async () => {
     }
   }
   return trybeMembers;
-};
-
-module.exports = {
-  fetchMembers
 };
 
 // fetchMembers().then(console.log);
