@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,26 +8,27 @@
     <title>Document</title>
     <link rel="stylesheet" href="results.css">
 </head>
+
 <body>
     <div id="progress-bar">
-    <div id="progress-bar-parent">
+        <!-- <div id="progress-bar-parent"> -->
         <div id="children"></div>
+        <!-- </div> -->
     </div>
-</div>
-<div id="sub-body" class="hide-sub-body">
-    <h1> Teste Tabela</h1>
-    <table class="content-table" id="myTable">
-        <thead>
-            <tr id="table-header">
-                <th class="th-rank">Rank</th>
-                <th class="th-name">Name</th>
-                <th class="th-points">Points</th>
-                <th class="th-team">Team</th>
-                <th>Info</th>
-            </tr>
-        </thead>
-        <tbody id="content-table-body">
-            <!-- <tr>
+    <div id="sub-body" class="hide-sub-body">
+        <h1 id="h1-table" class="hide"> Teste Tabela</h1>
+        <table class="content-table" id="myTable">
+            <thead>
+                <tr id="table-header" class="hide">
+                    <th class="th-rank">Rank</th>
+                    <th class="th-name">Name</th>
+                    <th class="th-points">Points</th>
+                    <th class="th-team">Team</th>
+                    <th>Info</th>
+                </tr>
+            </thead>
+            <tbody id="content-table-body" class="hide">
+                <!-- <tr>
                 <td>1</td>
                 <td>Fred</td>
                 <td>84</td>
@@ -55,12 +57,13 @@
                 <td><div class="test">&#43</div>
                     </td>
             </tr> -->
-        </tbody>
-    </table>
-</div>    
+            </tbody>
+        </table>
+    </div>
     <div id="modal">
         <div id="popup">
-            <img src="https://st.depositphotos.com/2101611/3925/v/450/depositphotos_39258143-stock-illustration-businessman-avatar-profile-picture.jpg" alt="profile picture">
+            <img src="https://st.depositphotos.com/2101611/3925/v/450/depositphotos_39258143-stock-illustration-businessman-avatar-profile-picture.jpg"
+                alt="profile picture">
             <p>Name: José Silva</p>
             <p>Email: jose@hotmail.com</p>
             <p>Localização: SP, Brasil</p>
@@ -68,7 +71,8 @@
             <span id="close-popup">Fechar</span>
         </div>
     </div>
-    <a href="../index.html">Retornar</a>
+    <a href="../index.html" class="hide" id="return-anchor">Retornar</a>
     <script src="results.js"></script>
 </body>
+
 </html>
