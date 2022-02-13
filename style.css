@@ -275,6 +275,20 @@ tr:hover {
     cursor: pointer;
 } 
 
+/* Footer */
+footer {
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  background-color: black;
+  font-size: 20px;
+}
+
 /* 1 - A primeira div só poderá aparecer se nossa tela possuir largura mínima de 500px . */
 @media screen and (min-width: 500px) {
     .card:nth-child(1) {
