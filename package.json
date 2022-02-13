@@ -22,6 +22,7 @@
   "homepage": "https://github.com/ottomicheletti/TrybePartnerRecruits#readme",
   "dependencies": {
     "@octokit/request": "^5.6.3",
+    "axios": "^0.26.0",
     "next": "^12.0.10",
     "next-auth": "^4.2.1",
     "node-fetch": "^2.6.7",

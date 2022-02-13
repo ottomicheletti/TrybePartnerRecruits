@@ -9,6 +9,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./helpers/axios.js"></script>
+  <script src="./helpers/fetchOrgTeams.js"></script>
+  <script src="./helpers/fetchTeamMembers.js"></script>
+  <script src="./helpers/fetchUser.js"></script>
+  <script type="module" src="script.js" defer></script>
 
   <title>TrybePartnerRecruits</title>
 </head>
@@ -19,7 +25,7 @@
   <nav class="">
     <div class="container">
       <a class="logo" href="#">
-        <img src="/imgs/trybe-logo.png" alt="trybe logo" class="">
+        <img src="./imgs/trybe-logo.png" alt="trybe logo" class="">
         <h2 class=>TrybePartnerRecruits</h2>
       </a>
       <ul class="navbar-nav">
@@ -77,36 +83,29 @@
         <p>
           Débora da Rosa
         </p>
-        <img src="/imgs/github-icon-2.png" alt="github symbol">
+        <img src="./imgs/github-icon-2.png" alt="github symbol">
       </a>
       <a href="https://github.com/guilhermeevencio">
         <p>
           Guilherme Luz
         </p>
-        <img src="/imgs/github-icon-2.png" alt="github symbol">
+        <img src="./imgs/github-icon-2.png" alt="github symbol">
       </a>
       <a href="https://github.com/heitortessaro">
         <p>
           Heitor Tessaro
         </p>
-        <img src="/imgs/github-icon-2.png" alt="github symbol">
+        <img src="./imgs/github-icon-2.png" alt="github symbol">
       </a>
       <a href="https://github.com/ottomicheletti">
         <p>
           Otto Micheletti
         </p>
 
-        <img src="/imgs/github-icon-2.png" alt="github symbol">
+        <img src="./imgs/github-icon-2.png" alt="github symbol">
       </a>
     </div>
   </footer>
-
-  <script type="module">
-    import { request } from "https://cdn.skypack.dev/@octokit/request";
-  </script>
-  <script src="script.js"></script>
-
-
 
 </body>
 
