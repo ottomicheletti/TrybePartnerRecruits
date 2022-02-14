@@ -1,6 +1,12 @@
 // import { SignGit } from "./components/index.js";
-  
+
 const mainSec = document.getElementById('main-sec');
+const selectorTurmas = document.getElementById('turmas');
+const apresentacaoSec = document.getElementById('apresentacao');
+const buscaSec = document.getElementById('busca');
+const divisor = document.getElementsByClassName('divisor')[0];
+const secDivs = document.getElementsByClassName('main-divs')[0];
+let page = 1;
 
 const insertPlayerData = (arrayData) => {
   const table = document.querySelector('.content-table');
@@ -13,62 +19,6 @@ const insertPlayerData = (arrayData) => {
   table.appendChild(tr);
 };
 
-// funcao apresentada em https://www.w3schools.com/howto/howto_js_sort_table.asp
-function sortTable(event) {
-  n = event.target.getAttribute('index');
-  let rows,
-    i,
-    x,
-    y,
-    shouldSwitch,
-    switchcount = 0;
-  const table = document.getElementById('myTable');
-  let switching = true;
-  // Set the sorting direction to ascending:
-  let dir = 'asc';
-  /* Make a loop that will continue until no switching has been done: */
-  while (switching) {
-    // Start by saying: no switching is done:
-    switching = false;
-    rows = table.rows;
-    /* Loop through all table rows (except the first, which contains table headers): */
-    for (i = 1; i < rows.length - 1; i++) {
-      // Start by saying there should be no switching:
-      shouldSwitch = false;
-      /* Get the two elements you want to compare, one from current row and one from the next: */
-      x = rows[i].getElementsByTagName('TD')[n];
-      y = rows[i + 1].getElementsByTagName('TD')[n];
-      /* Check if the two rows should switch place, based on the direction, asc or desc: */
-      if (dir == 'asc') {
-        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-          // If so, mark as a switch and break the loop:
-          shouldSwitch = true;
-          break;
-        }
-      } else if (dir == 'desc') {
-        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-          // If so, mark as a switch and break the loop:
-          shouldSwitch = true;
-          break;
-        }
-      }
-    }
-    if (shouldSwitch) {
-      /* If a switch has been marked, make the switch and mark that a switch has been done: */
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-      // Each time a switch is done, increase this count by 1:
-      switchcount++;
-    } else {
-      /* If no switching has been done AND the direction is "asc", set the direction to "desc" and run the while loop again. */
-      if (switchcount == 0 && dir == 'asc') {
-        dir = 'desc';
-        switching = true;
-      }
-    }
-  }
-}
-
 const addSortToTable = () => {
   const tableHeader = document.getElementById('table-header');
   const tableHeaderElements = tableHeader.children;
@@ -78,22 +28,107 @@ const addSortToTable = () => {
   });
 };
 
-const addDivs = (n) => {
-  mainSec.classList.add('main-divs')
-  for (let index = 0; index < n; index += 1) {
-    const div = document.createElement('div');
-    div.classList.add('div-card');
-    div.innerText = 'Teste';
-    mainSec.appendChild(div);
-  }
+function createProductImageElement(imageSource) {
+  const img = document.createElement('img');
+  img.className = 'id__image';
+  img.src = imageSource;
+  return img;
 }
 
+function createCustomElement(element, className, innerText) {
+  const e = document.createElement(element);
+  e.className = className;
+  e.innerText = innerText;
+  return e;
+}
+
+const addDivs = (alunos) => {
+  // mainSec.classList.add('main-divs')
+  alunos.forEach((element) => {
+    const div = document.createElement('div');
+    div.classList.add('div-card');
+    div.appendChild(createProductImageElement(element[0]))
+    div.appendChild(createCustomElement('h3', 'nome-aluno', `@${element[1]}`))
+    mainSec.appendChild(div);
+  })
+};
+
 const removeContent = () => {
-  while (mainSec.firstChild) {
-    mainSec.firstChild.remove();
+  // mainSec.innerHTML = '';
+  while (secDivs.firstChild) {
+    secDivs.firstChild.remove();
   }
 };
 
+const addSelector = async () => {
+  const classes = await fetchOrgTeams();
+  // console.log(classes);
+  classes.forEach((element, index) => {
+    const option = document.createElement('option');
+    option.innerHTML = element[1];
+    option.value = element[0];
+    selectorTurmas.appendChild(option);
+  });
+};
+
+const nextPage = async () => {
+  if (!(secDivs.childNodes.length < 30)) {
+    const turma = selectorTurmas.value;
+    page += 1;
+    const participantes = await fetchTeamMembers(turma, page);
+    removeContent();
+    addDivs(participantes);
+  };
+};
+
+const backPage = async () => {
+  if (page > 1) {
+    const turma = selectorTurmas.value;
+    page -= 1;
+    const participantes = await fetchTeamMembers(turma, page);
+    removeContent();
+    addDivs(participantes);
+  };
+};
+
+const goToMainPage = () => {
+  page = 1;
+  removeContent();
+  search.classList.remove('hide');
+  apresentacaoSec.classList.remove('hide')
+  divisor.classList.remove('hide');
+  secDivs.classList.add('hide');
+  document.querySelector('.sec-nav-btns').classList.add('hide');
+}
+
+const addSecBtns = () => {
+  if (document.querySelector('.sec-nav-btns')) {
+    document.querySelector('.sec-nav-btns').classList.remove('hide')
+  } else {
+    const secBtns = createCustomElement('section', 'sec-nav-btns', '');
+    const voltarBtn = createCustomElement('button', 'nav-btns', 'Voltar');
+    const nextPagBtn = createCustomElement('button', 'nav-btns', 'Próxima Página');
+    const backPagBtn = createCustomElement('button', 'nav-btns', 'Página Anterior');
+    voltarBtn.addEventListener('click', goToMainPage)
+    nextPagBtn.addEventListener('click', nextPage);
+    backPagBtn.addEventListener('click', backPage);
+    secBtns.appendChild(voltarBtn);
+    secBtns.appendChild(backPagBtn);
+    secBtns.appendChild(nextPagBtn);
+    secDivs.after(secBtns);
+  }
+}
+
+const removeAndAddDivs = async () => {
+  const turma = selectorTurmas.value;
+  const participantes = await fetchTeamMembers(turma);
+  search.classList.add('hide');
+  apresentacaoSec.classList.add('hide')
+  divisor.classList.add('hide');
+  secDivs.classList.remove('hide');
+  addDivs(participantes);
+  addSecBtns();
+};
 
 // Implementando a função login 
 
@@ -101,11 +136,10 @@ const defaultEmail = 'recruiter@trybe.com';
 const defaultPassword = '1234';
 const userInput = document.querySelector('#email');
 const userPassword = document.querySelector('#password');
-const submitBtn = document.querySelector('#login-button');
 const search = document.querySelector('#busca');
 const loginSection = document.querySelector('#login-container');
 
-const login = () => {
+const login = async () => {
   if (defaultEmail === userInput.value && defaultPassword === userPassword.value) {
     document.getElementById('form__msg-exito').classList.add('form__msg-exito-ativo');
 		setTimeout(() => {
@@ -118,6 +152,7 @@ const login = () => {
 
     loginSection.classList.add('hide');
     search.classList.remove('hide');
+    await addSelector();
   } else {
     document.getElementById('form__msg').classList.add('form__msg-ativo');
     setTimeout(() => {
@@ -128,7 +163,6 @@ const login = () => {
 
   }
 }
-// submitBtn.addEventListener('click', login);
 
 const removeAndAddDivs = () => {
   removeContent();
@@ -193,10 +227,7 @@ formulario.addEventListener('submit', (e) => {
 	}
 });
 
-window.onload = () => {
-  // fetchOrgTeams().then(console.log);
-  // fetchTeamMembers('students-sd-019-c',).then(console.log);
-  // fetchUser('ottomicheletti').then(console.log);
+window.onload = async () => {
   mainSec.className = '';
   const searchBtn = document.getElementById('search-btn');
   searchBtn.addEventListener('click', removeAndAddDivs);

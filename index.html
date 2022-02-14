@@ -51,7 +51,7 @@
 
   <main id="main-sec">
 
-    <section class="apresentacao">
+    <section class="apresentacao" id="apresentacao">
       <div class="apresentacao-texto">
         <h1>Baseie sua seleção em <span class="text-important"> DADOS </span></h1>
         <p class="lead my-4">
@@ -69,13 +69,19 @@
 
     <section class="busca hide" id="busca">
       <h3>Insira os termos relacionada a sua busca dos candidatos</h3>
-      <input type="text" placeholder="Termo de busca">
+      <!-- <input type="text" placeholder="Termo de busca"> -->
+      <form action="">
+        <label for="turmas">Selecione a turma:</label>
+        <select name="turmas" id="turmas">
+        </select>
+      </form>
       <div>
         <button id="search-btn">Buscar</button>
       </div>
     </section>
 
     <div id="login-container">
+
     <section id="login-section">
       <img src="imgs/gihub-logo.png" id="imglogo" alt="github logo">
       <h3>Faça seu login</h3>
