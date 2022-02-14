@@ -11,3 +11,7 @@ Plataformas como LinkedIn possibilitam que o recrutador busque por palavras chav
 ## O TrybePartnerRecruits
 
 Nesse contexto, o TrybePartnerRecruits propõe que a busca seja feita utilizando os dados de produção associados aos perfis dos desenvolvedores cadastrados no GitHub. Dessa forma, o recrutador podem utilizar dados para o processo de recrutamento.
+
+## Funcionamento
+
+Enquanto a autenticação por login no GitHub não é finalizada, para funcionar a ferramente, é necessário que seja gerada um token de acesso pessoal em: https://github.com/settings/tokens (tutorial https://ior.ad/82Fa?iframeHash=trysteps-1) e este token substituido na primeira linha do arquivo axios.js na const token. 
