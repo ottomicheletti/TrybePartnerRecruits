@@ -14,4 +14,6 @@ Nesse contexto, o TrybePartnerRecruits propõe que a busca seja feita utilizando
 
 ## Funcionamento
 
-Enquanto a autenticação por login no GitHub não é finalizada, para funcionar a ferramenta, é necessário que seja gerado um token de acesso pessoal em: https://github.com/settings/tokens (tutorial https://ior.ad/82Fa?iframeHash=trysteps-1) e este token substituido na primeira linha do arquivo axios.js na const token. 
+Enquanto a autenticação por login no GitHub não é finalizada, para funcionar a ferramenta, é necessário que seja gerado um token de acesso pessoal em: https://github.com/settings/tokens (tutorial https://ior.ad/82Fa?iframeHash=trysteps-1) e este token substituído na primeira linha do arquivo axios.js na const token.
+
+<img width="600" src="./imgs/00-axios.png">
