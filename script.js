@@ -6,7 +6,7 @@ const divisor = document.getElementsByClassName('divisor')[0];
 const secDivs = document.getElementsByClassName('main-divs')[0];
 const cardImgCommit = document.getElementById('commit-stats');
 const cardImgLanguage = document.getElementById('language-stats');
-const teste = document.getElementById('teste')
+const teste = document.getElementById('teste');
 const popup = document.getElementById('popup');
 const closePopup = document.getElementById('close-popup');
 
@@ -26,20 +26,9 @@ function createCustomElement(element, className, innerText) {
   return e;
 }
 
-const getElementOrClosest = (sectionClass, target) =>
-  target.classList.contains(sectionClass) ?
-  target :
-  target.closest(sectionClass);
+const getElementOrClosest = (sectionClass, target) => (target.classList.contains(sectionClass) ? target : target.closest(sectionClass));
 
-const createModal = ({
-  user,
-  profile,
-  name,
-  location,
-  email,
-  avatar,
-  hireable,
-}) => {
+const createModal = ({ user, profile, name, location, email, avatar, hireable }) => {
   const local = () => {
     if (!!location) {
       return location;
@@ -78,9 +67,11 @@ const createModal = ({
   profileEmail.innerHTML = `${emailCheck()}`;
   const img1 = document.createElement('img');
   img1.src = `https://github-readme-stats.vercel.app/api?username=${user}&hide_title=true&disable_animations=true&theme=vue-dark&hide_rank=true&show_icons=true_`;
+  img1.classList.add('img-stats');
   popup.insertBefore(img1, closePopup);
   const img2 = document.createElement('img');
   img2.src = `https://github-readme-stats.vercel.app/api/top-langs?username=${user}&hide_title=true&theme=vue-dark&layout=compact`;
+  img2.classList.add('img-stats');
   popup.insertBefore(img2, closePopup);
 };
 
@@ -102,9 +93,9 @@ const divModal = async (event) => {
   closePopup.addEventListener('click', () => {
     modal.classList.remove('show');
     document.querySelector('#main-content').classList.remove('filter');
+    Array.from(document.getElementsByClassName('img-stats')).forEach((el) => el.remove());
   });
 };
-
 
 const addDivs = (alunos) => {
   alunos.forEach((element) => {
@@ -173,16 +164,8 @@ const addSecBtns = () => {
   } else {
     const secBtns = createCustomElement('section', 'sec-nav-btns', '');
     const voltarBtn = createCustomElement('button', 'nav-btns', 'Voltar');
-    const nextPagBtn = createCustomElement(
-      'button',
-      'nav-btns',
-      'Próxima Página'
-    );
-    const backPagBtn = createCustomElement(
-      'button',
-      'nav-btns',
-      'Página Anterior'
-    );
+    const nextPagBtn = createCustomElement('button', 'nav-btns', 'Próxima Página');
+    const backPagBtn = createCustomElement('button', 'nav-btns', 'Página Anterior');
     voltarBtn.addEventListener('click', goToMainPage);
     nextPagBtn.addEventListener('click', nextPage);
     backPagBtn.addEventListener('click', backPage);
@@ -214,17 +197,10 @@ const search = document.querySelector('#busca');
 const loginSection = document.querySelector('#login-container');
 
 const login = async () => {
-  if (
-    defaultEmail === userInput.value &&
-    defaultPassword === userPassword.value
-  ) {
-    document
-      .getElementById('form__msg-exito')
-      .classList.add('form__msg-exito-ativo');
+  if (defaultEmail === userInput.value && defaultPassword === userPassword.value) {
+    document.getElementById('form__msg-exito').classList.add('form__msg-exito-ativo');
     setTimeout(() => {
-      document
-        .getElementById('form__msg-exito')
-        .classList.remove('form__msg-exito-ativo');
+      document.getElementById('form__msg-exito').classList.remove('form__msg-exito-ativo');
     }, 5000);
 
     document.querySelectorAll('.form__grupo-correto').forEach((icon) => {
@@ -239,12 +215,8 @@ const login = async () => {
     setTimeout(() => {
       formulario.reset();
       document.getElementById('form__msg').classList.remove('form__msg-ativo');
-      document
-        .querySelector(`#grupo__email i`)
-        .classList.remove('fa-check-circle');
-      document
-        .querySelector(`#grupo__password i`)
-        .classList.remove('fa-check-circle');
+      document.querySelector(`#grupo__email i`).classList.remove('fa-check-circle');
+      document.querySelector(`#grupo__password i`).classList.remove('fa-check-circle');
     }, 3500);
   }
 };
@@ -276,34 +248,18 @@ const validarFormulario = (e) => {
 
 const validarCampo = (expressao, input, campo) => {
   if (expressao.test(input.value)) {
-    document
-      .getElementById(`grupo__${campo}`)
-      .classList.remove('form__grupo-incorreto');
-    document
-      .getElementById(`grupo__${campo}`)
-      .classList.add('form__grupo-correto');
+    document.getElementById(`grupo__${campo}`).classList.remove('form__grupo-incorreto');
+    document.getElementById(`grupo__${campo}`).classList.add('form__grupo-correto');
     document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
-    document
-      .querySelector(`#grupo__${campo} i`)
-      .classList.remove('fa-times-circle');
-    document
-      .querySelector(`#grupo__${campo} .form__input-error`)
-      .classList.remove('form__input-error-ativo');
+    document.querySelector(`#grupo__${campo} i`).classList.remove('fa-times-circle');
+    document.querySelector(`#grupo__${campo} .form__input-error`).classList.remove('form__input-error-ativo');
     campos[campo] = true;
   } else {
-    document
-      .getElementById(`grupo__${campo}`)
-      .classList.add('form__grupo-incorreto');
-    document
-      .getElementById(`grupo__${campo}`)
-      .classList.remove('form__grupo-correto');
+    document.getElementById(`grupo__${campo}`).classList.add('form__grupo-incorreto');
+    document.getElementById(`grupo__${campo}`).classList.remove('form__grupo-correto');
     document.querySelector(`#grupo__${campo} i`).classList.add('fa-times-circle');
-    document
-      .querySelector(`#grupo__${campo} i`)
-      .classList.remove('fa-check-circle');
-    document
-      .querySelector(`#grupo__${campo} .form__input-error`)
-      .classList.add('form__input-error-ativo');
+    document.querySelector(`#grupo__${campo} i`).classList.remove('fa-check-circle');
+    document.querySelector(`#grupo__${campo} .form__input-error`).classList.add('form__input-error-ativo');
     campos[campo] = false;
   }
 };
@@ -333,7 +289,6 @@ const profileImg = document.getElementById('profile-img');
 const profileName = document.getElementById('profile-name');
 const profileLocation = document.getElementById('location');
 const profileIsHireable = document.getElementById('hireable');
-
 
 // const progressBar = document.querySelector('#progress-bar');
 
@@ -365,7 +320,6 @@ const profileIsHireable = document.getElementById('hireable');
 //   document.querySelector('#main-content').classList.remove('filter');
 // });
 // };
-
 
 window.onload = () => {
   mainSec.className = '';
