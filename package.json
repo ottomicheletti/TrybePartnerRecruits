@@ -1,0 +1,32 @@
+{
+  "name": "trybepartnerrecruits",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ottomicheletti/TrybePartnerRecruits.git"
+  },
+  "author": "Otto Micheletti, Heitor Tessaro, Débora Schuch e Guilherme Luz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ottomicheletti/TrybePartnerRecruits/issues"
+  },
+  "homepage": "https://github.com/ottomicheletti/TrybePartnerRecruits#readme",
+  "dependencies": {
+    "@octokit/request": "^5.6.3",
+    "axios": "^0.26.0",
+    "next": "^12.0.10",
+    "next-auth": "^4.2.1",
+    "node-fetch": "^2.6.7",
+    "react-icons": "^4.3.1",
+    "sass": "^1.49.7"
+  }
+}
