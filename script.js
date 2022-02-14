@@ -48,8 +48,8 @@ const addDivs = (alunos) => {
     const div = document.createElement('div');
     div.classList.add('div-card');
     div.appendChild(createProductImageElement(element[0]))
-    div.appendChild(createCustomElement('h3', 'nome-aluno', element[1]))
-    secDivs.appendChild(div);
+    div.appendChild(createCustomElement('h3', 'nome-aluno', `@${element[1]}`))
+    mainSec.appendChild(div);
   })
 };
 
