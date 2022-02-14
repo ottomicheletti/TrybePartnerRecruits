@@ -104,6 +104,7 @@ const removeAndAddDivs = async () => {
   secDivs.classList.remove('hide');
   addDivs(await fetchTeamMembers(turma, 1));
   addSecBtns();
+  divModal();
 };
 
 // Implementando a função login
@@ -200,6 +201,84 @@ formulario.addEventListener('submit', (e) => {
 
 const searchBtn = document.getElementById('search-btn');
 searchBtn.addEventListener('click', removeAndAddDivs);
+
+// Construindo o conteudo das modal-divs
+
+const profileEmail = document.getElementById('profile-email');
+const profileImg = document.getElementById('profile-img');
+const profileName = document.getElementById('profile-name');
+const profileLocation = document.getElementById('location');
+const profileIsHireable = document.getElementById('hireable');
+
+const createModal = ({ user, profile, name, location, email, avatar, hireable }) => {
+
+  const local = () => {
+    if (!!location) {
+      return location;
+    }
+    return 'Localização não especificada';
+  }
+
+  const hasAName = () => {
+    if (!!name) {
+      return name
+    }
+    return 'Nome não especificado.'
+  }
+
+  const ishireable = () => {
+    if (!!hireable) {
+      return '<strong>Disponível para contratação.</strong>';
+    }
+    return '<strong>Não disponível para a contratação</strong>';
+  }
+
+  const emailCheck = () => {
+    if (!!email) {
+      return `<strong>E-mail:</strong>${email}`
+    }
+    return 'E-mail não especificado.'
+  }
+
+  const a = document.getElementById('img-link');
+  a.innerHTML = `<strong>GitHub username:</strong> @${user}`;
+  a.href = profile;
+  profileImg.src = avatar;
+  profileName.innerHTML = ` <strong>Nome:</strong> ${hasAName()}`;
+  profileLocation.innerHTML = `<strong>Localização:</strong> ${local()}`;
+  profileIsHireable.innerHTML = `${ishireable()}`;
+  profileEmail.innerHTML = `${emailCheck()}`;
+}
+
+// const progressBar = document.querySelector('#progress-bar');
+
+const popup = document.getElementById('popup');
+
+const divModal = () => {
+  const divCards = document.querySelectorAll('.div-card');
+  divCards.forEach((el) => {
+    el.addEventListener('click', async (event) => {
+      popup.classList.add('hideopt');
+      modal.className = 'show';
+      document.querySelector('#main-content').classList.add('filter');
+      const gitHubUserName = event.currentTarget.children[1].innerText;
+      const slicedString = gitHubUserName.substring(1);
+      const userObject = await fetchUser(slicedString);
+      createModal(userObject)
+      setTimeout(() => {
+        popup.classList.remove('hideopt');
+      }, 300)
+        ;
+    });
+  });
+
+  const modal = document.getElementById('modal');
+  const closePopup = document.querySelector('#close-popup');
+  closePopup.addEventListener('click', () => {
+    modal.classList.remove('show');
+    document.querySelector('#main-content').classList.remove('filter');
+  });
+};
 
 window.onload = () => {
   mainSec.className = '';
