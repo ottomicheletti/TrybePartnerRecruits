@@ -107,10 +107,25 @@ const loginSection = document.querySelector('#login-container');
 
 const login = () => {
   if (defaultEmail === userInput.value && defaultPassword === userPassword.value) {
+    document.getElementById('form__msg-exito').classList.add('form__msg-exito-ativo');
+		setTimeout(() => {
+			document.getElementById('form__msg-exito').classList.remove('form__msg-exito-ativo');
+		}, 5000);
+
+		document.querySelectorAll('.form__grupo-correto').forEach((icon) => {
+			icon.classList.remove('form__grupo-correto');
+		});
+
     loginSection.classList.add('hide');
     search.classList.remove('hide');
   } else {
-    throw new Error ('Login ou senha inválida!');
+    document.getElementById('form__msg').classList.add('form__msg-ativo');
+    setTimeout(() => {
+      formulario.reset();
+      document.getElementById('form__msg').classList.remove('form__msg-ativo');
+      document.querySelector(`#grupo__email i`).classList.remove('fa-check-circle');
+      document.querySelector(`#grupo__password i`).classList.remove('fa-check-circle');}, 3500);
+
   }
 }
 // submitBtn.addEventListener('click', login);
@@ -172,16 +187,7 @@ formulario.addEventListener('submit', (e) => {
 	e.preventDefault();
 
 	if(campos.email && campos.password ){
-		formulario.reset();
-
-		document.getElementById('form__msg-exito').classList.add('form__msg-exito-ativo');
-		setTimeout(() => {
-			document.getElementById('form__msg-exito').classList.remove('form__msg-exito-ativo');
-		}, 5000);
-
-		document.querySelectorAll('.form__grupo-correto').forEach((icon) => {
-			icon.classList.remove('form__grupo-correto');
-		});
+    login();
 	} else {
 		document.getElementById('form__msg').classList.add('form__msg-ativo');
 	}
