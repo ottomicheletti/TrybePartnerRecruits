@@ -53,6 +53,7 @@ const nextPage = async () => {
     const participantes = await fetchTeamMembers(turma, page);
     removeContent();
     addDivs(participantes);
+    divModal();
   }
 };
 
@@ -63,6 +64,7 @@ const backPage = async () => {
     const participantes = await fetchTeamMembers(turma, page);
     removeContent();
     addDivs(participantes);
+    divModal();
   }
 };
 
@@ -74,6 +76,7 @@ const goToMainPage = () => {
   divisor.classList.remove('hide');
   secDivs.classList.add('hide');
   document.querySelector('.sec-nav-btns').classList.add('hide');
+  divModal();
 };
 
 const addSecBtns = () => {

@@ -377,6 +377,7 @@ footer a img {
   .div-card:hover {
     color: var(--verdeT1);
     box-shadow: 0px 0px 10px var(--verdeT2);
+    cursor: pointer;
   }
 
   .div-card .id__image {
