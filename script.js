@@ -1,5 +1,3 @@
-// import { SignGit } from "./components/index.js";
-
 const mainSec = document.getElementById('main-sec');
 const selectorTurmas = document.getElementById('turmas');
 const apresentacaoSec = document.getElementById('apresentacao');
@@ -143,6 +141,7 @@ const nextPage = async () => {
     const participantes = await fetchTeamMembers(turma, page);
     removeContent();
     addDivs(participantes);
+    divModal();
   }
 };
 
@@ -153,6 +152,7 @@ const backPage = async () => {
     const participantes = await fetchTeamMembers(turma, page);
     removeContent();
     addDivs(participantes);
+    divModal();
   }
 };
 
@@ -164,6 +164,7 @@ const goToMainPage = () => {
   divisor.classList.remove('hide');
   secDivs.classList.add('hide');
   document.querySelector('.sec-nav-btns').classList.add('hide');
+  divModal();
 };
 
 const addSecBtns = () => {
@@ -254,7 +255,7 @@ const inputs = document.querySelectorAll('#formulario input');
 
 const expressoes = {
   email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-  password: /^.{4,12}$/, // 4 a 12 digitos
+  password: /^.{4,12}$/,
 };
 
 const campos = {
@@ -333,6 +334,7 @@ const profileName = document.getElementById('profile-name');
 const profileLocation = document.getElementById('location');
 const profileIsHireable = document.getElementById('hireable');
 
+
 // const progressBar = document.querySelector('#progress-bar');
 
 // const popup = document.getElementById('popup');
@@ -363,6 +365,7 @@ const profileIsHireable = document.getElementById('hireable');
 //   document.querySelector('#main-content').classList.remove('filter');
 // });
 // };
+
 
 window.onload = () => {
   mainSec.className = '';
