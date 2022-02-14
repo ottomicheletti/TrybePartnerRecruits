@@ -2,6 +2,10 @@
 
 const mainSec = document.getElementById('main-sec');
 const selectorTurmas = document.getElementById('turmas');
+const apresentacaoSec = document.getElementById('apresentacao');
+const buscaSec = document.getElementById('busca');
+const divisor = document.getElementsByClassName('divisor')[0];
+const secDivs = document.getElementsByClassName('main-divs')[0];
 let page = 1;
 
 const insertPlayerData = (arrayData) => {
@@ -39,19 +43,20 @@ function createCustomElement(element, className, innerText) {
 }
 
 const addDivs = (alunos) => {
-  mainSec.classList.add('main-divs')
+  // mainSec.classList.add('main-divs')
   alunos.forEach((element) => {
     const div = document.createElement('div');
     div.classList.add('div-card');
     div.appendChild(createProductImageElement(element[0]))
     div.appendChild(createCustomElement('h3', 'nome-aluno', element[1]))
-    mainSec.appendChild(div);
+    secDivs.appendChild(div);
   })
 };
 
 const removeContent = () => {
-  while (mainSec.firstChild) {
-    mainSec.firstChild.remove();
+  // mainSec.innerHTML = '';
+  while (secDivs.firstChild) {
+    secDivs.firstChild.remove();
   }
 };
 
@@ -67,33 +72,60 @@ const addSelector = async () => {
 };
 
 const nextPage = async () => {
-  // console.log(mainSec.children.length);
-  if (!(mainSec.childNodes.length < 30)) {
+  if (!(secDivs.childNodes.length < 30)) {
     const turma = selectorTurmas.value;
     page += 1;
     const participantes = await fetchTeamMembers(turma, page);
     removeContent();
     addDivs(participantes);
-  }
-  // console.log('teste');
+  };
+};
+
+const backPage = async () => {
+  if (page > 1) {
+    const turma = selectorTurmas.value;
+    page -= 1;
+    const participantes = await fetchTeamMembers(turma, page);
+    removeContent();
+    addDivs(participantes);
+  };
+};
+
+const goToMainPage = () => {
+  page = 1;
+  removeContent();
+  search.classList.remove('hide');
+  apresentacaoSec.classList.remove('hide')
+  divisor.classList.remove('hide');
+  secDivs.classList.add('hide');
+  document.querySelector('.sec-nav-btns').classList.add('hide');
 }
 
 const addSecBtns = () => {
-  const secBtns = createCustomElement('section', 'sec-nav-btns', '');
-  const voltarBtn = createCustomElement('button', 'nav-btns', 'Voltar');
-  const nextPagBtn = createCustomElement('button', 'nav-btns', 'Próxima Página');
-  const backPagBtn = createCustomElement('button', 'nav-btns', 'Página Anterior');
-  nextPagBtn.addEventListener('click', nextPage);
-  secBtns.appendChild(voltarBtn);
-  secBtns.appendChild(backPagBtn);
-  secBtns.appendChild(nextPagBtn);
-  mainSec.after(secBtns);
+  if (document.querySelector('.sec-nav-btns')) {
+    document.querySelector('.sec-nav-btns').classList.remove('hide')
+  } else {
+    const secBtns = createCustomElement('section', 'sec-nav-btns', '');
+    const voltarBtn = createCustomElement('button', 'nav-btns', 'Voltar');
+    const nextPagBtn = createCustomElement('button', 'nav-btns', 'Próxima Página');
+    const backPagBtn = createCustomElement('button', 'nav-btns', 'Página Anterior');
+    voltarBtn.addEventListener('click', goToMainPage)
+    nextPagBtn.addEventListener('click', nextPage);
+    backPagBtn.addEventListener('click', backPage);
+    secBtns.appendChild(voltarBtn);
+    secBtns.appendChild(backPagBtn);
+    secBtns.appendChild(nextPagBtn);
+    secDivs.after(secBtns);
+  }
 }
 
 const removeAndAddDivs = async () => {
   const turma = selectorTurmas.value;
   const participantes = await fetchTeamMembers(turma);
-  removeContent();
+  search.classList.add('hide');
+  apresentacaoSec.classList.add('hide')
+  divisor.classList.add('hide');
+  secDivs.classList.remove('hide');
   addDivs(participantes);
   addSecBtns();
 };
