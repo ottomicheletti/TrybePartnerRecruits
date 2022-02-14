@@ -1,6 +1,7 @@
 // import { SignGit } from "./components/index.js";
-  
+
 const mainSec = document.getElementById('main-sec');
+const selectorTurmas = document.getElementById('turmas');
 
 const insertPlayerData = (arrayData) => {
   const table = document.querySelector('.content-table');
@@ -78,15 +79,30 @@ const addSortToTable = () => {
   });
 };
 
-const addDivs = (n) => {
+function createProductImageElement(imageSource) {
+  const img = document.createElement('img');
+  img.className = 'id__image';
+  img.src = imageSource;
+  return img;
+}
+
+function createCustomElement(element, className, innerText) {
+  const e = document.createElement(element);
+  e.className = className;
+  e.innerText = innerText;
+  return e;
+}
+
+const addDivs = (alunos) => {
   mainSec.classList.add('main-divs')
-  for (let index = 0; index < n; index += 1) {
+  alunos.forEach((element) => {
     const div = document.createElement('div');
     div.classList.add('div-card');
-    div.innerText = 'Teste';
+    div.appendChild(createProductImageElement(element[0]))
+    div.appendChild(createCustomElement('h3', 'nome-aluno', element[1]))
     mainSec.appendChild(div);
-  }
-}
+  })
+};
 
 const removeContent = () => {
   while (mainSec.firstChild) {
@@ -105,26 +121,38 @@ const submitBtn = document.querySelector('#login-button');
 const search = document.querySelector('#busca');
 const loginSection = document.querySelector('#login-container');
 
-const login = () => {
+const addSelector = async () => {
+  const classes = await fetchOrgTeams();
+  // console.log(classes);
+  classes.forEach((element, index) => {
+    const option = document.createElement('option');
+    option.innerHTML = element[1];
+    option.value = element[0];
+    selectorTurmas.appendChild(option);
+  });
+}
+
+const login = async () => {
   if (defaultEmail === userInput.value && defaultPassword === userPassword.value) {
     loginSection.classList.add('hide');
     search.classList.remove('hide');
+    await addSelector();
   } else {
-    throw new Error ('Login ou senha inválida!');
+    throw new Error('Login ou senha inválida!');
   }
 }
-submitBtn.addEventListener('click', login);
 
-const removeAndAddDivs = () => {
+
+const removeAndAddDivs = async () => {
+  const turma = selectorTurmas.value;
+  const participantes = await fetchTeamMembers(turma);
   removeContent();
-  addDivs(10);
+  addDivs(participantes);
 }
 
-window.onload = () => {
-  // fetchOrgTeams().then(console.log);
-  // fetchTeamMembers('students-sd-019-c',).then(console.log);
-  // fetchUser('ottomicheletti').then(console.log);
+window.onload = async () => {
   mainSec.className = '';
   const searchBtn = document.getElementById('search-btn');
   searchBtn.addEventListener('click', removeAndAddDivs);
+  submitBtn.addEventListener('click', login);
 };
