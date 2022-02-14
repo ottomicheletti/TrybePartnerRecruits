@@ -12,6 +12,8 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+  display:flex; 
+  flex-direction:column; 
 }
 
 /* barra de navegação */
@@ -83,6 +85,7 @@ nav .navbar-nav .nav-item a:hover {
 
 
 main {
+  /* flex-grow: 2; */
   display: flex;
   flex-direction: column;
   padding: 1em;
@@ -197,8 +200,9 @@ main {
 
 /* Footer */
 footer {
-  position: absolute;
-  bottom: 0;
+  /* align-self:stretch; */
+  margin-top:auto; 
+  /* bottom: 0; */
   width: 100%;
   padding: 7px 0;
   background-color: var(--verdeT1);
@@ -496,6 +500,29 @@ footer a img {
     border-radius: 50%;
   }
 
+}
+
+/* botoes de navegacao */
+.sec-nav-btns{
+  margin-top: 1rem;
+  display: flex;  
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+.nav-btns {
+  font-size: 1.1em;
+  background-color: var(--verdeT3);
+  color: white;
+  padding: 10px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid var(--verdeT1);
+}
+
+.nav-btns:hover {
+  color: black;
+  box-shadow: 0px 0px 10px black;
 }
 
 
