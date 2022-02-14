@@ -1,5 +1,5 @@
 // import { SignGit } from "./components/index.js";
-  
+
 const mainSec = document.getElementById('main-sec');
 
 const insertPlayerData = (arrayData) => {
@@ -105,26 +105,37 @@ const submitBtn = document.querySelector('#login-button');
 const search = document.querySelector('#busca');
 const loginSection = document.querySelector('#login-container');
 
-const login = () => {
+const addSelector = async () => {
+  const classes = await fetchOrgTeams();
+  console.log(classes);
+  const selectorTurmas = document.getElementById('turmas');
+  classes.forEach((element, index) => {
+    const option = document.createElement('option');
+    option.innerHTML = element[1];
+    selectorTurmas.appendChild(option);
+  });
+}
+
+
+const login = async () => {
   if (defaultEmail === userInput.value && defaultPassword === userPassword.value) {
     loginSection.classList.add('hide');
     search.classList.remove('hide');
+    await addSelector();
   } else {
-    throw new Error ('Login ou senha inválida!');
+    throw new Error('Login ou senha inválida!');
   }
 }
-submitBtn.addEventListener('click', login);
+
 
 const removeAndAddDivs = () => {
   removeContent();
   addDivs(10);
 }
 
-window.onload = () => {
-  // fetchOrgTeams().then(console.log);
-  // fetchTeamMembers('students-sd-019-c',).then(console.log);
-  // fetchUser('ottomicheletti').then(console.log);
+window.onload = async () => {
   mainSec.className = '';
   const searchBtn = document.getElementById('search-btn');
   searchBtn.addEventListener('click', removeAndAddDivs);
+  submitBtn.addEventListener('click', login);
 };
