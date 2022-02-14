@@ -149,12 +149,39 @@ main {
   padding: 0 10px;
 }
 
-.busca button {
+.busca form {
   font-size: 1.4em;
+  width: 58%;
+  margin-bottom: 1.2rem;
+  /* border: 2px solid var(--verdeT2); */
+  /* border-radius: 5px; */
+  padding: 0 10px;
+  text-align: center;
+}
+
+.busca form select {
+  background-color: var(--verdeT3);
+  margin-left: 10px;
+  font-size: 1.2rem;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid var(--verdeT1);
+  border-radius: 10px;
+  padding: 5px;
+  color: white;
+}
+
+.busca form select:hover{
+  color: black;
+  box-shadow: 0px 0px 10px black;
+}
+
+.busca button {
+  font-size: 1.2em;
   background-color: var(--verdeT3);
   color: white;
   padding: 10px 20px;
-  border-radius: 20px;
+  border-radius: 10px;
   cursor: pointer;
   border: 1px solid var(--verdeT1);
 }
