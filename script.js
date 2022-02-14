@@ -8,26 +8,6 @@ const divisor = document.getElementsByClassName('divisor')[0];
 const secDivs = document.getElementsByClassName('main-divs')[0];
 var page = 1;
 
-// const insertPlayerData = (arrayData) => {
-//   const table = document.querySelector('.content-table');
-//   const tr = document.createElement('tr');
-//   arrayData.forEach((element) => {
-//     const td = document.createElement('td');
-//     td.innerText = element;
-//     tr.appendChild(td);
-//   });
-//   table.appendChild(tr);
-// };
-
-// const addSortToTable = () => {
-//   const tableHeader = document.getElementById('table-header');
-//   const tableHeaderElements = tableHeader.children;
-//   Array.from(tableHeaderElements).forEach((element, index) => {
-//     element.setAttribute('index', index);
-//     element.addEventListener('click', sortTable);
-//   });
-// };
-
 function createProductImageElement(imageSource) {
   const img = document.createElement('img');
   img.className = 'id__image';
@@ -43,7 +23,6 @@ function createCustomElement(element, className, innerText) {
 }
 
 const addDivs = (alunos) => {
-  // mainSec.classList.add('main-divs')
   alunos.forEach((element) => {
     const div = document.createElement('div');
     div.classList.add('div-card');
@@ -54,7 +33,6 @@ const addDivs = (alunos) => {
 };
 
 const removeContent = () => {
-  // mainSec.innerHTML = '';
   while (secDivs.firstChild) {
     secDivs.firstChild.remove();
   }
@@ -62,7 +40,6 @@ const removeContent = () => {
 
 const addSelector = async () => {
   const classes = await fetchOrgTeams();
-  // console.log(classes);
   classes.forEach((element) => {
     const option = document.createElement('option');
     option.innerHTML = element[1];
