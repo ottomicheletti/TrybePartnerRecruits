@@ -81,14 +81,9 @@ const divModal = async (event) => {
   popup.classList.add('hideopt');
   modal.className = 'show';
   document.querySelector('#main-content').classList.add('filter');
-  // const result = fetch("https://github-readme-stats.vercel.app/api?username=heitortessaro&show_icons=true&theme=dark&include_all_commits=true&count_private=true");
-  // result.then((res) => cardImgCommit.src = res);
-  // cardImgCommit.src = ;
-  // teste.innerHTML = `<img height="180em" src="https://github-readme-stats.vercel.app/api?username=heitortessaro&show_icons=true&theme=dark&include_all_commits=true&count_private=true"/>`;
   const userObject = await fetchUser(userSelection.getAttribute('usuario'));
   createModal(userObject);
   popup.classList.remove('hideopt');
-  // const modal = document.getElementById('modal');
   const closePopup = document.querySelector('#close-popup');
   closePopup.addEventListener('click', () => {
     modal.classList.remove('show');
