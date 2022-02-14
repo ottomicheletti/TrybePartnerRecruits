@@ -186,112 +186,14 @@ main {
   border: 1px solid var(--verdeT1);
 }
 
-
 .busca button:hover {
   color: black;
   box-shadow: 0px 0px 10px black;
 }
 
-/* parte implementeda por guilherme */
 
-.content-table {
-  border-collapse: collapse;
-  margin: 20px 0;
-  font-size: 0.9em;
-  min-width: 500px;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 0 0 20px rgba(128, 128, 128, 0.379);
-}
 
-.content-table thead tr {
-  background-color: rgb(81, 201, 135);
-  color: azure;
-  min-width: 400px;
-  text-align: left;
-  font-weight: bold;
-}
 
-.content-table th,
-.content-table td {
-  padding: 15px;
-}
-
-.content-table tbody tr {
-  border-bottom: 1px solid rgba(128, 128, 128, 0.283);
-}
-
-.content-table tbody tr:nth-of-type(even) {
-  background-color: rgba(128, 128, 128, 0.105);
-}
-
-#father {
-  position: relative;
-  height: 25px;
-  margin-top: 50px;
-  background-color: grey;
-  border-radius: 15px;
-  width: 800px;
-}
-
-#children {
-  position: absolute;
-  height: 25px;
-  border-radius: 5px;
-  background-color: rgb(102, 255, 145);
-  animation: teste 5s forwards;
-  border-radius: 15px;
-  box-shadow: 5px 5px 10px rgba(44, 218, 93, 0.529);
-}
-
-tr:hover {
-  color: rgb(81, 201, 135);
-  background-color: rgba(128, 128, 128, 0.146);
-  /* cursor: pointer; */
-}
-
-@keyframes teste {
-  0% {
-    width: 0%;
-  }
-
-  100% {
-    width: 100%;
-  }
-}
-
-#popup {
-  margin-top: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 0;
-  background-color: rgb(81, 201, 135);
-  border-radius: 15px;
-  box-shadow: 5px 5px 10px rgba(128, 128, 128, 0.749);
-  margin-bottom: 100px;
-}
-
-#popup img {
-  width: 100px;
-  border: 2px solid rgb(7, 138, 92);
-  border-radius: 50%;
-  padding: 20px;
-  background-color: aliceblue;
-}
-
-#popup p {
-  border: 2px solid rgb(9, 107, 43);
-  margin: 10px 40px;
-  background-color: aliceblue;
-  border-radius: 10px;
-  padding: 10px 15px;
-  text-decoration: none;
-}
-
-[class^='th'] {
-  cursor: pointer;
-}
 
 /* Footer */
 footer {
@@ -355,6 +257,11 @@ footer a img {
     border-radius: 50px;
   }
 
+  .divisor {
+    width: 1000px;
+    margin: auto;
+  }
+
   .busca {
     margin-top: 30px;
   }
@@ -368,21 +275,34 @@ footer a img {
   .main-divs {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     flex-wrap: wrap;
-    gap: 10px
+    gap: 15px;
   }
 
   .div-card {
-    background-color: red;
+    /* background-color: red; */
     padding: 10px;
     display: inline-block;
-    max-width: 100px;
+    border-radius: 20px;
+    /* max-width: 100px; */
+    text-align: center;
+  }
+
+  .div-card:hover {
+      color:var(--verdeT1);
+      box-shadow: 0px 0px 10px var(--verdeT2);
+  }
+
+  .div-card .id__image{
+    height: 200px;
+    border-radius: 50%;
   }
 }
 
-@media screen and (min-width: 501px) and (max-width: 1170px){
+@media screen and (min-width: 601px) and (max-width: 1199px){
   body {
-    font-size: 12px;
+    font-size: 14px;
   }
   
   nav .container {
@@ -429,7 +349,14 @@ footer a img {
     display: block;
     margin: auto;
     max-width: 40%;
+    max-height: 235px;
     border-radius: 25px;
+  }
+
+  .divisor {
+    width: 70%;
+    min-width: 580px;
+    margin: auto;
   }
 
   .busca {
@@ -451,19 +378,32 @@ footer a img {
   .main-divs {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     flex-wrap: wrap;
-    gap: 10px
+    gap: 15px;
   }
 
   .div-card {
-    background-color: red;
+    /* background-color: red; */
     padding: 10px;
     display: inline-block;
-    max-width: 100px;
+    border-radius: 20px;
+    /* max-width: 100px; */
+    text-align: center;
+  }
+
+  .div-card:hover {
+      color:var(--verdeT1);
+      box-shadow: 0px 0px 10px var(--verdeT2);
+  }
+
+  .div-card .id__image{
+    height: 150px;
+    border-radius: 50%;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   body {
     font-size: 10px;
   }
@@ -512,6 +452,7 @@ footer a img {
     display: block;
     margin: auto;
     max-width: 80%;
+    max-height: 200px;
     border-radius: 25px;
   }
 
@@ -534,15 +475,25 @@ footer a img {
   .main-divs {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     flex-wrap: wrap;
-    gap: 10px
+    gap: 15px;
   }
 
   .div-card {
-    background-color: red;
+    /* background-color: red; */
     padding: 10px;
     display: inline-block;
-    max-width: 100px;
+    border-radius: 20px;
+    /* max-width: 100px; */
+    text-align: center;
+    /* color:var(--verdeT1); */
+      box-shadow: 0px 0px 2px var(--verdeT2);
+  }
+
+  .div-card .id__image{
+    height: 100px;
+    border-radius: 50%;
   }
 
 }
