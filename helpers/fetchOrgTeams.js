@@ -4,4 +4,4 @@ const fetchOrgTeams = async () => {
   const regex = /students-sd-/g;
   const teams = data.map((team) => [team.slug, team.name.replace(regex, 'Turma ')]).filter((team) => team[0].match(regex));
   return teams;
-}
+};

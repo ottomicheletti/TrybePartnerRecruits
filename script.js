@@ -1,5 +1,3 @@
-// import { SignGit } from "./components/index.js";
-
 const mainSec = document.getElementById('main-sec');
 const selectorTurmas = document.getElementById('turmas');
 const apresentacaoSec = document.getElementById('apresentacao');
@@ -147,7 +145,7 @@ const inputs = document.querySelectorAll('#formulario input');
 
 const expressoes = {
   email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-  password: /^.{4,12}$/, // 4 a 12 digitos
+  password: /^.{4,12}$/,
 };
 
 const campos = {
@@ -211,34 +209,33 @@ const profileLocation = document.getElementById('location');
 const profileIsHireable = document.getElementById('hireable');
 
 const createModal = ({ user, profile, name, location, email, avatar, hireable }) => {
-
   const local = () => {
     if (!!location) {
       return location;
     }
     return 'Localização não especificada';
-  }
+  };
 
   const hasAName = () => {
     if (!!name) {
-      return name
+      return name;
     }
-    return 'Nome não especificado.'
-  }
+    return 'Nome não especificado.';
+  };
 
   const ishireable = () => {
     if (!!hireable) {
       return '<strong>Disponível para contratação.</strong>';
     }
     return '<strong>Não disponível para a contratação</strong>';
-  }
+  };
 
   const emailCheck = () => {
     if (!!email) {
-      return `<strong>E-mail:</strong>${email}`
+      return `<strong>E-mail:</strong>${email}`;
     }
-    return 'E-mail não especificado.'
-  }
+    return 'E-mail não especificado.';
+  };
 
   const a = document.getElementById('img-link');
   a.innerHTML = `<strong>GitHub username:</strong> @${user}`;
@@ -248,9 +245,7 @@ const createModal = ({ user, profile, name, location, email, avatar, hireable })
   profileLocation.innerHTML = `<strong>Localização:</strong> ${local()}`;
   profileIsHireable.innerHTML = `${ishireable()}`;
   profileEmail.innerHTML = `${emailCheck()}`;
-}
-
-// const progressBar = document.querySelector('#progress-bar');
+};
 
 const popup = document.getElementById('popup');
 
@@ -264,11 +259,10 @@ const divModal = () => {
       const gitHubUserName = event.currentTarget.children[1].innerText;
       const slicedString = gitHubUserName.substring(1);
       const userObject = await fetchUser(slicedString);
-      createModal(userObject)
+      createModal(userObject);
       setTimeout(() => {
         popup.classList.remove('hideopt');
-      }, 300)
-        ;
+      }, 300);
     });
   });
 
